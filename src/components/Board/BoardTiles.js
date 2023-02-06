@@ -11,8 +11,13 @@ const StyledBoardTiles = styled.div `
 `;
 
 const BoardTiles = (props) => {
+
+    const clickHandler = () => {
+        props.onTileClick(props.color)
+    }
+
     return (
-        <StyledBoardTiles color={props.color}>
+        <StyledBoardTiles color={props.color} onClick={clickHandler}>
             {props.knight}
         </StyledBoardTiles>
     )
