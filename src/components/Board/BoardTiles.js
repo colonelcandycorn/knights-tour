@@ -6,6 +6,8 @@ const StyledBoardTiles = styled.div `
   font-size: 1.5rem;
   color: #312635;
   text-align: center;
+  
+  // TODO: simplify this
   background-color: ${props => { return (((props.color % 2 === 0) && (Math.floor(props.color / 8) % 2 === 0)) ||
                                          ((props.color % 2 !== 0) && (Math.floor(props.color / 8) % 2 !== 0))) ? '#E9D9BB' : '#C2754B'}};
 `;
