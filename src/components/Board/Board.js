@@ -2,7 +2,6 @@ import styled from "styled-components";
 import BoardTiles from "./BoardTiles";
 import {useState} from "react";
 import Tour from "../Knight/Tour";
-import {wait} from "@testing-library/user-event/dist/utils";
 
 const StyledBoard = styled.div `
     display: grid;
@@ -40,6 +39,7 @@ const Board = () => {
             temp[tourArray[0]] = <BoardTiles key={tourArray[0]} color={tourArray[0]} knight={'♞'} onTileClick={tileClickHandler}/>;
             knightLocation = tourArray[0];
             setTiles(temp);
+            isLocationPicked = true;
         }
 
     }
