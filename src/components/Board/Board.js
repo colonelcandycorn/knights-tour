@@ -10,13 +10,10 @@ const StyledBoard = styled.div `
 `
 
 const Board = () => {
-    let isKnightPlaced = false;
+    let isKnightPlaced = false; // the knight can be placed once so that we know where to start Tour function
     let knightLocation = null;
-    let isLocationPicked = false;
+    let isLocationPicked = false; // This is arbitrary, but it prevents the user from running tour back to back times
 
-
-    // this needs to be declared first so it can be placed in tileArray
-    // kind of confusing because we use setTiles which declared after function declaration
     const tileClickHandler = (index) => {
         if (!isKnightPlaced) {
             setTiles(prevState => {
@@ -28,17 +25,22 @@ const Board = () => {
 
             isKnightPlaced = true;
         } else if (!isLocationPicked) {
+            /* Tour is a function that performs BFS to find the shortest path between two points on our board.
+            * It accepts a starting and an ending location, and it will return an array of ints that represents
+            * the path we need to take to get to our destination.*/
             let tourArray = Tour(knightLocation, index)
             let count = 1;
-            let temp = [...tiles];
+            /*
+            * As opposed to updating the tiles array inside setTiles with prevState, I decided to do this outside
+            * because when updating with prevState I was unable to set a tile's text content with variables like count
+            */
             while (tourArray.length > 1) {
-                console.log(tourArray)
                 let index = tourArray.shift();
-                temp[index] = <BoardTiles key={index} color={index} knight={count++} onTileClick={tileClickHandler} />;
+                tiles[index] = <BoardTiles key={index} color={index} knight={count++} onTileClick={tileClickHandler} />;
             }
-            temp[tourArray[0]] = <BoardTiles key={tourArray[0]} color={tourArray[0]} knight={'♞'} onTileClick={tileClickHandler}/>;
+            tiles[tourArray[0]] = <BoardTiles key={tourArray[0]} color={tourArray[0]} knight={'♞'} onTileClick={tileClickHandler}/>;
             knightLocation = tourArray[0];
-            setTiles(temp);
+            setTiles(tiles);
             isLocationPicked = true;
         }
 
@@ -46,6 +48,7 @@ const Board = () => {
 
     const tileArray = []
 
+    // Generation of blank board
     for (let i = 0; i < 64; ++i) {
         tileArray.push(<BoardTiles key={i} color={i} knight={''} onTileClick={tileClickHandler} />);
     }

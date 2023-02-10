@@ -18,7 +18,7 @@ const CenteredDiv = styled.div`
 function App() {
     const[boardKey, setBoardKey] = useState(1);
     const siblingResetHandler = () => {
-        setBoardKey(prevState => ++prevState);
+        setBoardKey(prevState => ++prevState); // by incrementing the key we force it to generate a new, blank board
     }
 
   return (
