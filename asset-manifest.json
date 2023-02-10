@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/knights-tour/static/css/main.45910b8c.css",
-    "main.js": "/knights-tour/static/js/main.7a5eb82d.js",
+    "main.js": "/knights-tour/static/js/main.be925f05.js",
     "index.html": "/knights-tour/index.html",
     "main.45910b8c.css.map": "/knights-tour/static/css/main.45910b8c.css.map",
-    "main.7a5eb82d.js.map": "/knights-tour/static/js/main.7a5eb82d.js.map"
+    "main.be925f05.js.map": "/knights-tour/static/js/main.be925f05.js.map"
   },
   "entrypoints": [
     "static/css/main.45910b8c.css",
-    "static/js/main.7a5eb82d.js"
+    "static/js/main.be925f05.js"
   ]
 }
