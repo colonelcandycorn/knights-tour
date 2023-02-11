@@ -5,6 +5,7 @@ import Board from "./components/Board/Board";
 import styled from "styled-components";
 import ResetButton from "./components/UI/ResetButton";
 import {useState} from "react";
+import FullTour from "./components/Knight/FullTour";
 
 const CenteredDiv = styled.div`
     display: flex;
@@ -16,6 +17,7 @@ const CenteredDiv = styled.div`
 `
 
 function App() {
+    FullTour(21);
     const[boardKey, setBoardKey] = useState(1);
     const siblingResetHandler = () => {
         setBoardKey(prevState => ++prevState); // by incrementing the key we force it to generate a new, blank board
