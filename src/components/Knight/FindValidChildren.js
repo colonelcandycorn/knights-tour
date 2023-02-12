@@ -8,7 +8,6 @@ const FindValidChildren = (pos, alreadyVisited) => {
 
         validChildren.push(child);
     }
-    console.log("children of possible next pos " + pos + " are " + validChildren)
     return validChildren;
 }
 

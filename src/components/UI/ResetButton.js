@@ -1,13 +1,5 @@
-import styled from "styled-components";
+import StyledButton from "./StyledButton";
 
-
-const StyledButton =styled.button`
-    background-color: #CC4651;
-    color: #e9d9bb;
-    padding: .25rem 2rem;
-    font-size: 1.5rem;
-    border-radius: 12px;
-`;
 const ResetButton = (props) => {
     const resetHandler = () => {
         console.log('reset')
