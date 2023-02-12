@@ -6,6 +6,7 @@ import styled from "styled-components";
 import ResetButton from "./components/UI/ResetButton";
 import {useState} from "react";
 import FullTourButton from "./components/UI/FullTourButton";
+import Instructions from "./components/UI/Instructions";
 
 const CenteredDiv = styled.div`
     display: flex;
@@ -33,6 +34,7 @@ function App() {
             <Card>
                 <Board key={boardKey} onResetClick={resetHandler}/>
             </Card>
+            <Instructions />
         </CenteredDiv>
     </div>
   );

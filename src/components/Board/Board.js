@@ -6,7 +6,13 @@ import FullTour from "../Knight/FullTour";
 import ResetButton from "../UI/ResetButton";
 import FullTourButton from "../UI/FullTourButton";
 
+const StyledDiv = styled.div `
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+`;
+
 const StyledBoard = styled.div `
+    grid-column: span 2;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     cursor: pointer;
@@ -51,7 +57,10 @@ const Board = (props) => {
     *  I am not currently sure of where the failure lies on those tiles.
      */
     const fullTourHandler = () => {
-       generateTourBoard(FullTour(knightLocation.current));
+        if (!isLocationPicked.current) {
+            generateTourBoard(FullTour(knightLocation.current));
+            isLocationPicked.current = true;
+        }
     }
 
     const tileClickHandler = (index) => {
@@ -82,13 +91,13 @@ const Board = (props) => {
     const [tiles, setTiles] = useState(generateNewBoard());
 
     return (
-        <div>
+        <StyledDiv>
             <StyledBoard>
                 {tiles}
             </StyledBoard>
             <ResetButton  onReset={resetHandler}/>
             <FullTourButton onFullTourClick={fullTourHandler}/>
-        </div>
+        </StyledDiv>
     )
 };
 
