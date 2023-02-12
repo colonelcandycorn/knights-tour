@@ -57,7 +57,7 @@ const Board = (props) => {
     *  I am not currently sure of where the failure lies on those tiles.
      */
     const fullTourHandler = () => {
-        if (!isLocationPicked.current) {
+        if (isKnightPlaced.current && !isLocationPicked.current) {
             generateTourBoard(FullTour(knightLocation.current));
             isLocationPicked.current = true;
         }
